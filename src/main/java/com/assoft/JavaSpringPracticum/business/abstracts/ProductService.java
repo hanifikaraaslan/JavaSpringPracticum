@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.assoft.JavaSpringPracticum.entities.Comment;
+import com.assoft.JavaSpringPracticum.entities.Product;
 
 public interface ProductService {
 
-	List<Comment> commentByTime(List<Date> timeInterval, int productId);
+	public List<Product> expiredProducts();
+	
 }
