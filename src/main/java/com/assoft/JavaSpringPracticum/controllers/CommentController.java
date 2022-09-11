@@ -34,4 +34,8 @@ public class CommentController {
    public List<Comment> commentsByDateRange(@RequestBody List<LocalDate> dates){
 	   return null;
    }
+   @GetMapping("commentsByDateRangeAndUser/{userId}")
+   public List<Comment> commentsByDateRange(@RequestBody List<LocalDate> dates, @PathVariable int userId){
+	   return null;
+   }
 }

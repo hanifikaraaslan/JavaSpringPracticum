@@ -35,6 +35,12 @@ public class CommentManager implements CommentService {
 		List<Comment> betweenComments=comments.stream().filter(comment -> comment.getCommentDate().isBefore(dates.get(1)) &&
 				comment.getCommentDate().isAfter(dates.get(0))).collect(Collectors.toList());
 		return betweenComments;
+	}
+
+	@Override
+	public List<Comment> commentsByDateRange(List<LocalDate> dates, int userId) {
+		List<Comment> commentByUser=this.getByUserId(userId);
+		return this.commentsByDateRange(dates);
 	} 
 	
 
