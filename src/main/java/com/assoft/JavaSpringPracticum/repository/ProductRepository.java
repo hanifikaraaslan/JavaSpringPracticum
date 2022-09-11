@@ -11,6 +11,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	@Query("From Product where expirationDate < current_date")
 	List<Product> findByExpirationDateBefore();
+	
+	@Query("From Product where expirationDate >= current_date")
+	List<Product> findByNotExpirationDateBefore();
 
 //	@Query("From Product where productName=:productName and category.categoryId=:categoryId")
 //		  List<Product> getByNameAndCategory(String productName, int categoryId);

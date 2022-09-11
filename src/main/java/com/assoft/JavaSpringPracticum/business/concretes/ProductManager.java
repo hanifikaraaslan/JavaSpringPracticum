@@ -25,5 +25,10 @@ public class ProductManager implements ProductService{
 		return productRepository.findByExpirationDateBefore();
 	}
 
+	@Override
+	public List<Product> notExpiredProducts() {
+		return productRepository.findByNotExpirationDateBefore();
+	}
+
 
 }

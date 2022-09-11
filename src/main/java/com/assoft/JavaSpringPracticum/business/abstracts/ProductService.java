@@ -10,4 +10,6 @@ public interface ProductService {
 
 	public List<Product> expiredProducts();
 	
+	public List<Product> notExpiredProducts();
+	
 }

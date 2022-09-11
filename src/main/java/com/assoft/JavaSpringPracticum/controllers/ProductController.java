@@ -28,5 +28,10 @@ public class ProductController {
   public List<Product> expiredProducts(){
 	  return productService.expiredProducts();
   }
+  
+  @GetMapping("notExpiredProducts")
+  public List<Product> notExpiredProducts(){
+	  return productService.notExpiredProducts();
+  }
 
 }
