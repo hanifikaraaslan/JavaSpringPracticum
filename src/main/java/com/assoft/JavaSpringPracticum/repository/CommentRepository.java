@@ -9,6 +9,7 @@ import com.assoft.JavaSpringPracticum.entities.Comment;
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 	
 	 List<Comment> findByProductId(int productId);
+	
 	 List<Comment> findByUserId(int userId);
 
 }

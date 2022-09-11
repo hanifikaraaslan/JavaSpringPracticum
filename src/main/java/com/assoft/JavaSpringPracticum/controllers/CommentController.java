@@ -19,8 +19,12 @@ public class CommentController {
 	
 	private CommentService commentService;
 
-   @GetMapping("getByProductId/{id}")
+   @GetMapping("getByProductId/{productId}")
    public List<Comment> getByProductId (@PathVariable int productId ) {
 	   return commentService.getByProductId(productId);
+   }
+   @GetMapping("getByUserId/{userId}")
+   public List<Comment> getByUsertId (@PathVariable int userId ) {
+	   return commentService.getByUserId(userId);
    }
 }

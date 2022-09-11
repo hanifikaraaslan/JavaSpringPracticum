@@ -19,6 +19,12 @@ public class CommentManager implements CommentService {
 	@Override
 	public List<Comment> getByProductId(int productId) {
 		return commentRepository.findByProductId(productId);
+	}
+
+	@Override
+	public List<Comment> getByUserId(int userId) {
+		
+		return commentRepository.findByUserId(userId);
 	} 
 	
 
