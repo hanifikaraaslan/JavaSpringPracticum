@@ -1,6 +1,9 @@
 package com.assoft.JavaSpringPracticum.business.concretes;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -23,8 +26,15 @@ public class CommentManager implements CommentService {
 
 	@Override
 	public List<Comment> getByUserId(int userId) {
-		
 		return commentRepository.findByUserId(userId);
+	}
+
+	@Override
+	public List<Comment> commentsByDateRange(List<LocalDate> dates) {
+		List<Comment> comments= commentRepository.findAll();
+		List<Comment> betweenComments=comments.stream().filter(comment -> comment.getCommentDate().isBefore(dates.get(1)) &&
+				comment.getCommentDate().isAfter(dates.get(0))).collect(Collectors.toList());
+		return betweenComments;
 	} 
 	
 

@@ -1,9 +1,11 @@
 package com.assoft.JavaSpringPracticum.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,12 +21,17 @@ public class CommentController {
 	
 	private CommentService commentService;
 
-   @GetMapping("getByProductId/{productId}")
+   @GetMapping("findByProductId/{productId}")
    public List<Comment> getByProductId (@PathVariable int productId ) {
 	   return commentService.getByProductId(productId);
    }
-   @GetMapping("getByUserId/{userId}")
+   @GetMapping("findByUserId/{userId}")
    public List<Comment> getByUsertId (@PathVariable int userId ) {
 	   return commentService.getByUserId(userId);
+   }
+   
+   @GetMapping("commentsByDateRange")
+   public List<Comment> commentsByDateRange(@RequestBody List<LocalDate> dates){
+	   return null;
    }
 }
