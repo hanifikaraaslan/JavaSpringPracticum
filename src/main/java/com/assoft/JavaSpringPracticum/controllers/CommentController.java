@@ -1,11 +1,26 @@
 package com.assoft.JavaSpringPracticum.controllers;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("api/v1/comment")
-public class CommentController {
+import com.assoft.JavaSpringPracticum.business.abstracts.CommentService;
+import com.assoft.JavaSpringPracticum.entities.Comment;
 
-   
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("api/v1/comment/")
+@RequiredArgsConstructor
+public class CommentController {
+	
+	private CommentService commentService;
+
+   @GetMapping("getByProductId/{id}")
+   public List<Comment> getByProductId (@PathVariable int productId ) {
+	   return commentService.getByProductId(productId);
+   }
 }
